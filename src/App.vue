@@ -1,7 +1,10 @@
 <template>
     <div id="app">
-        <drag-and-resize-panel :style="{color:'red'}" :width="150" :height="120" :max-width="300" :min-height="100" :max-height="300" :resizeable="'vertical'" :collapsable="true">
-            <div>哈哈哈哈sdfasfsadfsadfsadfsadfsafsadddddddddddddddddddddafsdafsadf哈</div>
+        <drag-and-resize-panel :style="{color:'red'}" :width="150" :height="120" :max-width="300" :min-height="100" :max-height="300"
+            :resizeable="'vertical'" :collapsable="true" @toggle-expand="eventHandel('toggle-expand', $event)">
+            <div>哈哈哈哈sdfasfsadfsadfsadfsadfsafsadddddddddddddddddddddafsdafsadf哈
+                <!-- <input type="text"> -->
+            </div>
         </drag-and-resize-panel>
     </div>
 </template>
@@ -17,16 +20,20 @@ export default {
     components: {
         "drag-and-resize-panel": DragAndResizePanel
     },
-    computed: {
+    computed: {},
+    methods: {
+        eventHandel(eventName, params) {
+            console.log(`event ${eventName} trigged, params is ${params}`);
+        }
     }
 };
 </script>
 
 
 <style lang="less" scoped>
-    #app {
-        position:absolute;
-        width: 100vw;
-        height: 100vh;
-    }    
+#app {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
 </style>

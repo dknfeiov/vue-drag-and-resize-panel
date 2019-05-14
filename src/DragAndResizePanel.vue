@@ -13,8 +13,6 @@
 </template>
 
 <script>
-
-
 // 获取在限定矩形范围内的坐标值
 const getPositionWithinBoundary = function(x, y, maxX, maxY) {
     if (x < 0) x = 0;
@@ -26,7 +24,7 @@ const getPositionWithinBoundary = function(x, y, maxX, maxY) {
         x,
         y
     };
-}
+};
 
 export default {
     name: "DragAndResizePanel",
@@ -74,19 +72,28 @@ export default {
         },
         // panel 默认宽高 100 * 100, 最小宽高为 36 * 36 , 最大宽高为 viewport
         resizeBoxStyle: function() {
-            return {
-                height: (this.height || 100) + "px",
-                width: (this.width || 100) + "px",
-                "min-width": Math.max(36, this.minWidth) + "px",
-                "min-height": Math.max(36, this.minHeight) + "px",
-                "max-width": this.maxWidth ? this.maxWidth + "px" : "",
-                "max-height": this.maxHeight ? this.maxHeight + "px" : "",
-                resize: this.expand
-                    ? this.resizeable
-                        ? this.resizeable === true ? "both" : this.resizeable
+            if (this.expand) {
+                return {
+                    height: (this.height || 100) + "px",
+                    width: (this.width || 100) + "px",
+                    "min-width": Math.max(36, this.minWidth) + "px",
+                    "min-height": Math.max(36, this.minHeight) + "px",
+                    "max-width": this.maxWidth ? this.maxWidth + "px" : "",
+                    "max-height": this.maxHeight ? this.maxHeight + "px" : "",
+                    resize: this.expand
+                        ? this.resizeable
+                            ? this.resizeable === true
+                                ? "both"
+                                : this.resizeable
+                            : "none"
                         : "none"
-                    : "none"
-            };
+                };
+            } else {
+                return {
+                    height: "36px",
+                    width: "36px"
+                };
+            }
         }
     },
     data() {
@@ -120,7 +127,7 @@ export default {
                     "px";
             }
             this.expand = !this.expand;
-            this.$emit('toggle-expand', this.expand)
+            this.$emit("toggle-expand", this.expand);
         },
         // panel 鼠标放开
         expandIconMouseUp() {
