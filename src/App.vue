@@ -23,7 +23,10 @@ export default {
     computed: {},
     methods: {
         eventHandel(eventName, params) {
-            console.log(`event ${eventName} trigged, params is ${params}`);
+            console.log(
+                `event ${eventName} trigged, params is :`
+            );
+            console.table(params)
         }
     }
 };

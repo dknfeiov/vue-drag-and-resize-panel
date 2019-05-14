@@ -29,10 +29,10 @@ const getPositionWithinBoundary = function(x, y, maxX, maxY) {
 export default {
     name: "DragAndResizePanel",
     props: {
-        draggable: {
-            type: Boolean,
-            default: true
-        },
+        // draggable: {
+        //     type: Boolean,
+        //     default: true
+        // },
         resizeable: {
             type: Boolean | String, // true | false | 'both' | 'horizontal' | 'vertical'
             default: true
@@ -127,7 +127,9 @@ export default {
                     "px";
             }
             this.expand = !this.expand;
-            this.$emit("toggle-expand", this.expand);
+            this.$emit("toggle-expand", {
+                expand: this.expand
+            });
         },
         // panel 鼠标放开
         expandIconMouseUp(event) {
