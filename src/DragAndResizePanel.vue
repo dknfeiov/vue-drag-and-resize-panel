@@ -63,9 +63,9 @@ export default {
     computed: {
         resizeBoxClass: function() {
             return {
-                resizeable: this.resizeable,
-                "resizeable-x": this.resizeable === "horizontal",
-                "resizeable-y": this.resizeable === "vertical",
+                resizeable: this.expand && this.resizeable,
+                "resizeable-x": this.expand && this.resizeable === "horizontal",
+                "resizeable-y": this.expand && this.resizeable === "vertical",
                 expand: this.expand,
                 collapse: !this.expand
             };
@@ -130,7 +130,7 @@ export default {
             this.$emit("toggle-expand", this.expand);
         },
         // panel 鼠标放开
-        expandIconMouseUp() {
+        expandIconMouseUp(event) {
             const end = Date.now();
             const gap = end - this.expandIconMouseDownStart;
             if (gap > 150) {
@@ -138,12 +138,15 @@ export default {
             }
         },
         // panel 鼠标按下
-        expandIconMouseDown() {
+        expandIconMouseDown(event) {
             this.triggeredDrag = false;
             this.expandIconMouseDownStart = Date.now();
         },
         // 鼠标出现在右下角 20 * 20px 区域，判定为resize
         resizeStart(event) {
+            if (!this.expand) {
+                return;
+            }
             this.speedTriggeredResize =
                 event.currentTarget.clientWidth - event.offsetX <= 20 &&
                 event.currentTarget.clientHeight - event.offsetY <= 20;
@@ -153,6 +156,9 @@ export default {
             }
         },
         resizeEnd(event) {
+            if (!this.expand) {
+                return;
+            }
             if (this.speedTriggeredResize) {
                 // 阻止事件冒泡，避免触发drag
                 event.stopPropagation();
@@ -301,6 +307,15 @@ export default {
         }
         .icon-plus {
             background-color: #b7ef9c;
+            // &::before {
+            //     content: "";
+            //     position: absolute;
+            //     bottom: 0px;
+            //     right: 0px;
+            //     width: 48px;
+            //     height: 48px;
+            //     opacity: 0;
+            // }
         }
         // slot content
         .slot-box {
