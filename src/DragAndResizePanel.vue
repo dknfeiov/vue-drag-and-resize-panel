@@ -175,14 +175,14 @@ export default {
                     const offsetX = el.offsetLeft;
                     const offsetY = el.offsetTop;
 
-                    // 父元素到视窗的距离
-                    const parentX = e.pageX - disx - offsetX;
-                    const parentY = e.pageY - disy - offsetY;
+                    // 父元素到客户端区域原点的距离
+                    const parentX = e.clientX - disx - offsetX;
+                    const parentY = e.clientY - disy - offsetY;
 
                     //阻止浏览器的默认事件
                     e.preventDefault();
                     document.onmousemove = e => {
-                        // 根据鼠标当前位置，重新设置 目标DOM元素到父元素的距离
+                        // 根据鼠标当前位置到客户端区域原点的距离，重新设置 目标DOM元素到父元素的距离
                         var currX = e.clientX - disx - parentX;
                         var currY = e.clientY - disy - parentY;
 

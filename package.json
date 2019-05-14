@@ -1,0 +1,17 @@
+{
+  "name": "drag-and-resize-panel",
+  "version": "1.0.0",
+  "description": "draggable, resizeable, collapsable panel based on Vue2.0",
+  "main": "src/App.vue",
+  "dependencies": {},
+  "devDependencies": {
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0"
+  },
+  "scripts": {
+    "start": "vue serve src/App.vue",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
