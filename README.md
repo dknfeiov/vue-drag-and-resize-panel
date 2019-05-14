@@ -38,3 +38,8 @@ minHeight       |  面板最小高度, 值必须>=36  |  Number               
 事件名  |  说明  |  返回值
 :-------: | -------  |  :-------:
 toggle-expand  |  面板切换展开、收缩状态时触发  | expandState (当前是否展开,返回 Boolean )
+
+
+
+### 注意：
+> panel 元素为绝对定位（absolute），注意父元素 position 属性的设置。

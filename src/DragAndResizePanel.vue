@@ -29,10 +29,6 @@ const getPositionWithinBoundary = function(x, y, maxX, maxY) {
 export default {
     name: "DragAndResizePanel",
     props: {
-        // draggable: {
-        //     type: Boolean,
-        //     default: true
-        // },
         resizeable: {
             type: Boolean | String, // true | false | 'both' | 'horizontal' | 'vertical'
             default: true
@@ -309,15 +305,6 @@ export default {
         }
         .icon-plus {
             background-color: #b7ef9c;
-            // &::before {
-            //     content: "";
-            //     position: absolute;
-            //     bottom: 0px;
-            //     right: 0px;
-            //     width: 48px;
-            //     height: 48px;
-            //     opacity: 0;
-            // }
         }
         // slot content
         .slot-box {

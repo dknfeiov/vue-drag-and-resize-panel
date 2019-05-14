@@ -1,9 +1,9 @@
 <template>
     <div id="app">
-        <drag-and-resize-panel :style="{color:'red'}" :width="150" :height="120" :max-width="300" :min-height="100" :max-height="300"
-            :resizeable="'vertical'" :collapsable="true" @toggle-expand="eventHandel('toggle-expand', $event)">
-            <div>哈哈哈哈sdfasfsadfsadfsadfsadfsafsadddddddddddddddddddddafsdafsadf哈
-                <!-- <input type="text"> -->
+        <drag-and-resize-panel :style="{color:'red'}" :width="150" :height="120" :max-width="300" :max-height="300"
+            :resizeable="true" :collapsable="true" @toggle-expand="eventHandel('toggle-expand', $event)">
+            <div>你好啊
+                <input type="textarea">
             </div>
         </drag-and-resize-panel>
     </div>
@@ -23,10 +23,8 @@ export default {
     computed: {},
     methods: {
         eventHandel(eventName, params) {
-            console.log(
-                `event ${eventName} trigged, params is :`
-            );
-            console.table(params)
+            console.log(`event ${eventName} trigged, params is :`);
+            console.table(params);
         }
     }
 };
