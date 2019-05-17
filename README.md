@@ -25,8 +25,8 @@ npm start
 :-------:       | -------                  |  :-------:            |  :-------:
 resizeable      |  是否可以调整大小，默认x、y轴都可，也可单独设置x('horizontal'),y ('vertical')          |  Boolean、String              |  false
 collapsable     |  是否允许收缩扩展          | Boolean              |  true   
-width           |  面板初始宽度             |  Number               |  100
-height          |  面板初始高度             |  Boolean              |  100
+width           |  面板初始宽度             |  Number               |  auto
+height          |  面板初始高度             |  Boolean              |  auto
 maxWidth        |  面板最大宽度             |  Boolean              |  视口宽度（100vw）
 maxHeight       |  面板最大高度             |  Boolean              |  视口高度（100vh）
 minWidth        |  面板最小宽度, 值必须>=36  |  Array                |  36 

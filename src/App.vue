@@ -1,9 +1,10 @@
 <template>
     <div id="app">
-        <drag-and-resize-panel :style="{color:'red'}" :width="150" :height="120" :max-width="300" :max-height="300"
+        <drag-and-resize-panel :style="{color:'red'}" :max-width="300" :max-height="300"
             :resizeable="true" :collapsable="true" @toggle-expand="eventHandel('toggle-expand', $event)">
-            <div>你好啊
-                <input type="textarea">
+            <div>
+                <span>panel 内容</span>
+                <img src="/asserts/prerender_broswer.PNG" alt="">
             </div>
         </drag-and-resize-panel>
     </div>
