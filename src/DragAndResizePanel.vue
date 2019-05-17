@@ -66,12 +66,12 @@ export default {
                 collapse: !this.expand
             };
         },
-        // panel 默认宽高 100 * 100, 最小宽高为 36 * 36 , 最大宽高为 viewport
+        // panel 默认宽高自适应, 最小宽高为 36 * 36 , 最大宽高为 viewport
         resizeBoxStyle: function() {
             if (this.expand) {
                 return {
-                    height: (this.height || 100) + "px",
-                    width: (this.width || 100) + "px",
+                    height: this.height ? this.height + "px" : "auto",
+                    width: this.width ? this.width + "px" : "auto",
                     "min-width": Math.max(36, this.minWidth) + "px",
                     "min-height": Math.max(36, this.minHeight) + "px",
                     "max-width": this.maxWidth ? this.maxWidth + "px" : "",
@@ -258,7 +258,7 @@ export default {
         padding-bottom: 15px;
         border: 1px solid rgba(128, 128, 128, 0.37);
         border-radius: 5px;
-        background-color: white;
+
         width: auto;
         height: auto;
         min-width: 36px;
@@ -268,6 +268,9 @@ export default {
         overflow: auto;
         resize: both;
         // panel collapse state
+        &.expand {
+            background-color: white;
+        }
         &.collapse {
             padding-bottom: 0px;
             border: 0px;
@@ -279,6 +282,7 @@ export default {
             max-width: 36px;
             max-height: 36px;
             border-radius: 18px;
+            background-color: inherit;
         }
         .icon-minus,
         .icon-plus {
